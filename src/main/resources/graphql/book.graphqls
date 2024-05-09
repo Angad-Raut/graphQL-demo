@@ -1,0 +1,39 @@
+type Query {
+   findAllBooks: [ViewBooksDto]
+   findByBookId(entityIdDto:EntityIdDto): Book!
+}
+
+type Mutation {
+   insertBook(bookDto: BookDto): Book
+   updateBook(entityIdDto:EntityIdDto,bookDto:BookDto): Book
+}
+
+type ViewBooksDto {
+   srNo: Int
+   bookId: ID!
+   name: String
+   price: Int
+   author: String
+   publication: String
+   bookStatus: String
+}
+
+type Book {
+   id: ID!
+   name: String
+   price: Int
+   author: String
+   publication: String
+   bookStatus: Boolean
+}
+
+input EntityIdDto {
+   entityId: ID
+}
+
+input BookDto {
+   name: String
+   price: Int
+   author: String
+   publication: String
+}
